@@ -3,7 +3,9 @@ package com.example.santri.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.santri.databinding.ActivityEditBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EditActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditBinding
@@ -15,6 +17,14 @@ class EditActivity : AppCompatActivity() {
 
         supportActionBar?.title = TITLE
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.editButton.setOnClickListener{
+            editSantri()
+        }
+    }
+
+    private fun editSantri() {
+        TODO("Not yet implemented")
     }
 
     override fun onSupportNavigateUp(): Boolean {

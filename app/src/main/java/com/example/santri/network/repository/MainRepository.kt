@@ -91,10 +91,10 @@ class MainRepository @Inject constructor(private val service: ApiService) {
         return item
     }
 
-    fun updateSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> {
+    fun updateSantri(santri: SantriItem, id: String): MutableLiveData<ApiResponse<SantriResponse>> {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
         val api = service.getUpdateSantri(
-            santri.id,
+            id,
             santri.nis,
             santri.name,
             santri.telp,
