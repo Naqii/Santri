@@ -48,8 +48,29 @@ class AddActivity : AppCompatActivity() {
         val progdi = binding.edtProgdi.text.toString()
         val jurusan = binding.edtJurusan.text.toString()
         val gelar = binding.edtGelar.text.toString()
-        val santri = SantriItem("", nis, name,telp, address, city, prov, birth, email, sikap, materi, bacaan, hafalan, hadir,
-            izin, alfa, ket, univ, progdi, jurusan, gelar)
+        val santri = SantriItem(
+            "",
+            nis,
+            name,
+            telp,
+            address,
+            city,
+            prov,
+            birth,
+            email,
+            sikap,
+            materi,
+            bacaan,
+            hafalan,
+            hadir,
+            izin,
+            alfa,
+            ket,
+            univ,
+            progdi,
+            jurusan,
+            gelar
+        )
         viewModel.createSantri(santri)
 
     }

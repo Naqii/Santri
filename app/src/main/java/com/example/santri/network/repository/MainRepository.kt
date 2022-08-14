@@ -13,7 +13,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainRepository @Inject constructor(private val service: ApiService){
+class MainRepository @Inject constructor(private val service: ApiService) {
 
     //GET ALL
     fun getSantri(): MutableLiveData<ApiResponse<SantriResponse>> {
@@ -46,11 +46,77 @@ class MainRepository @Inject constructor(private val service: ApiService){
 
     fun createSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
-        val api = service.getCreateSantri(santri.nis, santri.name, santri.telp, santri.address, santri.city
-        , santri.province, santri.birth, santri.email, santri.nilaiSikap, santri.nilaiMateri, santri.nilaiBacaan, santri.nilaiHafalan
-        , santri.presensiHadir, santri.presensiIzin, santri.presensiAlfa, santri.presensiKeterangan, santri.kampusUniv, santri.kampusProgdi
-        , santri.kampusJurusan, santri.kampusGelar)
-        api.enqueue(object : Callback<SantriResponse>{
+        val api = service.getCreateSantri(
+            santri.nis,
+            santri.name,
+            santri.telp,
+            santri.address,
+            santri.city,
+            santri.province,
+            santri.birth,
+            santri.email,
+            santri.nilaiSikap,
+            santri.nilaiMateri,
+            santri.nilaiBacaan,
+            santri.nilaiHafalan,
+            santri.presensiHadir,
+            santri.presensiIzin,
+            santri.presensiAlfa,
+            santri.presensiKeterangan,
+            santri.kampusUniv,
+            santri.kampusProgdi,
+            santri.kampusJurusan,
+            santri.kampusGelar
+        )
+        api.enqueue(object : Callback<SantriResponse> {
+            override fun onResponse(
+                call: Call<SantriResponse>,
+                response: Response<SantriResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    if (body != null) {
+                        item.postValue(ApiResponse.success(body))
+                    } else {
+                        item.postValue(ApiResponse.error("No Response", SantriResponse()))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<SantriResponse>, t: Throwable) {
+                t.message?.let { Log.d("Failure", it) }
+            }
+
+        })
+        return item
+    }
+
+    fun updateSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> {
+        val item = MutableLiveData<ApiResponse<SantriResponse>>()
+        val api = service.getUpdateSantri(
+            santri.id,
+            santri.nis,
+            santri.name,
+            santri.telp,
+            santri.address,
+            santri.city,
+            santri.province,
+            santri.birth,
+            santri.email,
+            santri.nilaiSikap,
+            santri.nilaiMateri,
+            santri.nilaiBacaan,
+            santri.nilaiHafalan,
+            santri.presensiHadir,
+            santri.presensiIzin,
+            santri.presensiAlfa,
+            santri.presensiKeterangan,
+            santri.kampusUniv,
+            santri.kampusProgdi,
+            santri.kampusJurusan,
+            santri.kampusGelar
+        )
+        api.enqueue(object : Callback<SantriResponse> {
             override fun onResponse(
                 call: Call<SantriResponse>,
                 response: Response<SantriResponse>
