@@ -1,5 +1,6 @@
 package com.example.santri.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         adapter = SantriAdapter(ArrayList())
         binding.recyclerView.adapter = adapter
         showData()
+
+        //fab add
+        binding.addButton.setOnClickListener {
+            val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun showData() {
