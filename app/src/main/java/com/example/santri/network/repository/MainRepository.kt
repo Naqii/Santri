@@ -46,7 +46,10 @@ class MainRepository @Inject constructor(private val service: ApiService){
 
     fun createSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
-        val api = service.getCreateSantri(santri)
+        val api = service.getCreateSantri(santri.nis, santri.name, santri.telp, santri.address, santri.city
+        , santri.province, santri.birth, santri.email, santri.nilaiSikap, santri.nilaiMateri, santri.nilaiBacaan, santri.nilaiHafalan
+        , santri.presensiHadir, santri.presensiIzin, santri.presensiAlfa, santri.presensiKeterangan, santri.kampusUniv, santri.kampusProgdi
+        , santri.kampusJurusan, santri.kampusGelar)
         api.enqueue(object : Callback<SantriResponse>{
             override fun onResponse(
                 call: Call<SantriResponse>,
