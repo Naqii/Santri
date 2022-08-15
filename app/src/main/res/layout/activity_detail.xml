@@ -18,9 +18,9 @@
             android:text="Nis"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:text="Name"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/nis"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nis"
             tools:ignore="HardcodedText" />
 
         <TextView
@@ -40,17 +40,17 @@
             android:layout_height="wrap_content"
             android:text="Telephone"
             android:textSize="16sp"
-            app:layout_constraintTop_toBottomOf="@+id/name"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            tools:ignore="HardcodedText"/>
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:ignore="HardcodedText" />
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divup_item1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@id/telp"/>
+            app:layout_constraintTop_toBottomOf="@id/telp" />
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -270,7 +270,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/fakultas"
                         app:layout_constraintStart_toStartOf="@+id/fakultas"
                         app:layout_constraintTop_toBottomOf="@+id/fakultas"
-                        tools:ignore="HardcodedText"/>
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/progdi"
@@ -567,27 +567,54 @@
 
         </LinearLayout>
 
-<!--        <ProgressBar-->
-<!--            android:id="@+id/progressBar"-->
-<!--            style="?android:attr/progressBarStyle"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+        <!--        <ProgressBar-->
+        <!--            android:id="@+id/progressBar"-->
+        <!--            style="?android:attr/progressBarStyle"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/edit_button"
+            android:id="@+id/fab_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
             android:layout_margin="16dp"
-            android:contentDescription="edit button"
+            android:backgroundTint="@color/purple_500"
+            android:focusable="true"
+            android:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nis"
-            app:srcCompat="@drawable/ic_edit"
-            tools:ignore="HardcodedText,ImageContrastCheck" />
+            app:srcCompat="@drawable/ic_add" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:focusable="true"
+            android:tint="@android:color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/fab_menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_edit" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:focusable="true"
+            android:tint="@android:color/white"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/fab_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
