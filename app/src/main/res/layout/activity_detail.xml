@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.DetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Nis"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/nis"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/telp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telephone"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="HardcodedText"/>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divup_item1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/telp"/>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/divup_item1">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_bio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/detail_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bio Data Santri"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/email_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/detail_bio"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="random@mail.com"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/email_bio"
+                        app:layout_constraintStart_toStartOf="@+id/email_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/email_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/ttl_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tanggal Lahir"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/detail_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_ttl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2022-12-12"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/ttl_bio"
+                        app:layout_constraintStart_toStartOf="@+id/ttl_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/ttl_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/address_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alamat"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_email"
+                        app:layout_constraintStart_toStartOf="@+id/tv_email"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_email"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jl Sama Ayang"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/address_bio"
+                        app:layout_constraintStart_toStartOf="@+id/address_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/address_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/kota_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kota"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/address_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_kota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Semarang"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/kota_bio"
+                        app:layout_constraintStart_toStartOf="@+id/kota_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/kota_bio"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/province_bio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Provinsi"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_ttl"
+                        app:layout_constraintStart_toStartOf="@+id/tv_ttl"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_ttl"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_province"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jawa Tengah"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/province_bio"
+                        app:layout_constraintStart_toStartOf="@+id/province_bio"
+                        app:layout_constraintTop_toBottomOf="@+id/province_bio"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_kampus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/detail_kampus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Data Kampus"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/univ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Universitas"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/detail_kampus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_kampus"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/fakultas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fakultas"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/detail_kampus"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_kampus"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_univ"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Universitas Semarang"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/univ"
+                        app:layout_constraintStart_toStartOf="@+id/univ"
+                        app:layout_constraintTop_toBottomOf="@+id/univ"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_fakultas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Teknik Informatika"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/fakultas"
+                        app:layout_constraintStart_toStartOf="@+id/fakultas"
+                        app:layout_constraintTop_toBottomOf="@+id/fakultas"
+                        tools:ignore="HardcodedText"/>
+
+                    <TextView
+                        android:id="@+id/progdi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Program Studi"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_univ"
+                        app:layout_constraintStart_toStartOf="@+id/tv_univ"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_univ"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/gelar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Gelar"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_fakultas"
+                        app:layout_constraintStart_toStartOf="@+id/tv_fakultas"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_fakultas"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_progdi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S-1 Teknik Informatika"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/progdi"
+                        app:layout_constraintStart_toStartOf="@+id/progdi"
+                        app:layout_constraintTop_toBottomOf="@+id/progdi"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_gelar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S. Kom"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/gelar"
+                        app:layout_constraintStart_toStartOf="@+id/gelar"
+                        app:layout_constraintTop_toBottomOf="@+id/gelar"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_nilai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/detail_nilai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Data Nilai"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/materi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Materi"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/detail_nilai"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_nilai"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/bacaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bacaan"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/sikap"
+                        app:layout_constraintStart_toEndOf="@+id/materi"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_nilai"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/sikap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sikap"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toRightOf="@+id/bacaan"
+                        app:layout_constraintRight_toLeftOf="@+id/hafalan"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_nilai"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/hafalan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hafalan"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/detail_nilai"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_nilai"
+                        tools:ignore="HardcodedText" />
+
+
+                    <TextView
+                        android:id="@+id/tv_materi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/materi"
+                        app:layout_constraintStart_toStartOf="@+id/materi"
+                        app:layout_constraintTop_toBottomOf="@+id/materi"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_bacaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/bacaan"
+                        app:layout_constraintStart_toStartOf="@+id/bacaan"
+                        app:layout_constraintTop_toBottomOf="@+id/bacaan"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_sikap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/sikap"
+                        app:layout_constraintStart_toStartOf="@+id/sikap"
+                        app:layout_constraintTop_toBottomOf="@+id/sikap"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_hafalan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/hafalan"
+                        app:layout_constraintStart_toStartOf="@+id/hafalan"
+                        app:layout_constraintTop_toBottomOf="@+id/hafalan"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_santri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/detail_presensi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Presensi Santri"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/hadir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hadir/bln"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/detail_presensi"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_presensi"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/izin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Izin/bln"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_presensi"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/alfa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Alfa/bln"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/detail_presensi"
+                        app:layout_constraintTop_toBottomOf="@+id/detail_presensi"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/keterangan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Keterangan"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_izin"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_hadir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="23"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/hadir"
+                        app:layout_constraintStart_toStartOf="@+id/hadir"
+                        app:layout_constraintTop_toBottomOf="@+id/hadir"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_izin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/izin"
+                        app:layout_constraintStart_toStartOf="@+id/izin"
+                        app:layout_constraintTop_toBottomOf="@+id/izin"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_alfa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/alfa"
+                        app:layout_constraintStart_toStartOf="@+id/alfa"
+                        app:layout_constraintTop_toBottomOf="@+id/alfa"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/tv_keterangan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Baik"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/keterangan"
+                        app:layout_constraintStart_toStartOf="@+id/keterangan"
+                        app:layout_constraintTop_toBottomOf="@+id/keterangan"
+                        tools:ignore="HardcodedText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progressBar"-->
+<!--            style="?android:attr/progressBarStyle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="edit button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nis"
+            app:srcCompat="@drawable/ic_edit"
+            tools:ignore="HardcodedText,ImageContrastCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

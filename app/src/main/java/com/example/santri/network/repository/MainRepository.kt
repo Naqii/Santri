@@ -44,6 +44,33 @@ class MainRepository @Inject constructor(private val service: ApiService) {
         return item
     }
 
+    //GET BY ID
+    fun idSantri(id: String): MutableLiveData<ApiResponse<SantriResponse>> {
+        val item = MutableLiveData<ApiResponse<SantriResponse>>()
+        val api = service.getSrcSantri(id)
+        api.enqueue(object : Callback<SantriResponse> {
+            override fun onResponse(
+                call: Call<SantriResponse>,
+                response: Response<SantriResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val body = response.body()
+                    if (body != null) {
+                        item.postValue(ApiResponse.success(body))
+                    } else {
+                        item.postValue(ApiResponse.error("No Response", SantriResponse()))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<SantriResponse>, t: Throwable) {
+                t.message?.let { Log.d("Failure", it) }
+            }
+        })
+        return item
+    }
+
+    //POST UPLOAD
     fun createSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
         val api = service.getCreateSantri(
@@ -91,6 +118,7 @@ class MainRepository @Inject constructor(private val service: ApiService) {
         return item
     }
 
+    //POST UPDATE
     fun updateSantri(santri: SantriItem, id: String): MutableLiveData<ApiResponse<SantriResponse>> {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
         val api = service.getUpdateSantri(
