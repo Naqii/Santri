@@ -1,9 +1,11 @@
 package com.example.santri.network.api
 
-import com.example.santri.network.model.SantriItem
 import com.example.santri.network.model.SantriResponse
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiService {
 
@@ -35,8 +37,9 @@ interface ApiService {
         @Field("kampus_progdi") kampus_progdi: String?,
         @Field("kampus_jurusan") kampus_jurusan: String?,
         @Field("kampus_gelar") kampus_gelar: String?,
-        ): Call<SantriResponse>
+    ): Call<SantriResponse>
 
+    //POST/UPDATE
     @FormUrlEncoded
     @POST("data")
     fun getUpdateSantri(
@@ -61,5 +64,12 @@ interface ApiService {
         @Field("kampus_progdi") kampus_progdi: String?,
         @Field("kampus_jurusan") kampus_jurusan: String?,
         @Field("kampus_gelar") kampus_gelar: String?,
+    ): Call<SantriResponse>
+
+    //DELETE
+    @FormUrlEncoded
+    @POST
+    fun getDeleteSantri(
+        @Field("id") id: String?
     ): Call<SantriResponse>
 }
