@@ -10,7 +10,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class CreateViewModel @Inject constructor(private val repository: MainRepository) : ViewModel() {
+class CreateViewModel @Inject constructor(
+    private val repository: MainRepository
+) : ViewModel() {
 
     fun createSantri(santri: SantriItem): MutableLiveData<ApiResponse<SantriResponse>> =
         repository.createSantri(santri)

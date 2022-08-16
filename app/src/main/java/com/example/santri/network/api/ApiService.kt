@@ -45,9 +45,12 @@ interface ApiService {
 
     //POST/UPDATE
     @FormUrlEncoded
-    @POST("data")
+    @PUT("data/{id}")
     fun getUpdateSantri(
-        @Field("id") id: String?,
+        //For Url
+        @Path("id") id: String,
+        //Data Field Update
+//        @Field("id") idField: String,
         @Field("nis") nis: String?,
         @Field("name") name: String?,
         @Field("telp") telp: String?,
@@ -71,9 +74,9 @@ interface ApiService {
     ): Call<SantriResponse>
 
     //DELETE
-    @FormUrlEncoded
-    @POST
+    @DELETE("data/{id}")
     fun getDeleteSantri(
-        @Field("id") id: String?
+        //For Url
+        @Path("id") id: String
     ): Call<SantriResponse>
 }

@@ -72,7 +72,6 @@ class AddActivity : AppCompatActivity() {
             gelar
         )
         viewModel.createSantri(santri)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

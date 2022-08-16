@@ -33,6 +33,7 @@
                     android:autofillHints="name"
                     android:hint=" Nis"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
@@ -45,6 +46,7 @@
                     android:autofillHints="name"
                     android:hint=" Name"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     app:layout_constraintStart_toStartOf="@+id/edt_nis"
                     app:layout_constraintTop_toBottomOf="@+id/edt_nis"
                     tools:ignore="HardcodedText" />
@@ -57,6 +59,7 @@
                     android:autofillHints="name"
                     android:hint=" Telephone"
                     android:inputType="number"
+                    android:minHeight="48dp"
                     app:layout_constraintStart_toStartOf="@+id/edt_name"
                     app:layout_constraintTop_toBottomOf="@+id/edt_name"
                     tools:ignore="HardcodedText" />
@@ -69,6 +72,7 @@
                     android:autofillHints="name"
                     android:hint=" Address"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     app:layout_constraintStart_toStartOf="@+id/edt_telp"
                     app:layout_constraintTop_toBottomOf="@+id/edt_telp"
                     tools:ignore="HardcodedText" />
@@ -81,6 +85,7 @@
                     android:autofillHints="name"
                     android:hint="Kota"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edt_address"
                     tools:ignore="HardcodedText" />
@@ -93,6 +98,8 @@
                     android:autofillHints="name"
                     android:hint="Province"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/edt_city"
                     app:layout_constraintTop_toBottomOf="@+id/edt_address"
@@ -106,6 +113,8 @@
                     android:autofillHints="name"
                     android:hint="Tanggal Lahir"
                     android:inputType="date"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="@+id/edt_city"
                     app:layout_constraintTop_toBottomOf="@+id/edt_city"
                     tools:ignore="HardcodedText" />
@@ -118,6 +127,7 @@
                     android:autofillHints="name"
                     android:hint="Email"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/edt_prov"
                     app:layout_constraintTop_toBottomOf="@+id/edt_prov"
@@ -146,6 +156,8 @@
                     android:autofillHints="name"
                     android:hint="Sikap"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
@@ -157,6 +169,8 @@
                     android:autofillHints="name"
                     android:hint="Materi"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_sikap"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
@@ -168,6 +182,8 @@
                     android:autofillHints="name"
                     android:hint="Bacaan"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_materi"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
@@ -179,6 +195,8 @@
                     android:autofillHints="name"
                     android:hint="Hafalan"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_bacaan"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="HardcodedText" />
@@ -190,6 +208,8 @@
                     android:autofillHints="name"
                     android:hint="Hadir"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="@+id/edt_sikap"
                     app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
                     tools:ignore="HardcodedText" />
@@ -201,6 +221,8 @@
                     android:autofillHints="name"
                     android:hint="Izin"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_hadir"
                     app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
                     tools:ignore="HardcodedText" />
@@ -212,6 +234,8 @@
                     android:autofillHints="name"
                     android:hint="Alfa"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_izin"
                     app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
                     tools:ignore="HardcodedText" />
@@ -223,6 +247,8 @@
                     android:autofillHints="name"
                     android:hint="Keterangan"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_alfa"
                     app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
                     tools:ignore="HardcodedText" />
@@ -234,6 +260,8 @@
                     android:autofillHints="name"
                     android:hint="Universitas"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toStartOf="@+id/edt_hadir"
                     app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
                     tools:ignore="HardcodedText" />
@@ -245,6 +273,8 @@
                     android:autofillHints="name"
                     android:hint="Program Studi"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_univ"
                     app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
                     tools:ignore="HardcodedText" />
@@ -256,6 +286,8 @@
                     android:autofillHints="name"
                     android:hint="Fakultas"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_progdi"
                     app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
                     tools:ignore="HardcodedText" />
@@ -267,6 +299,8 @@
                     android:autofillHints="name"
                     android:hint="Gelar"
                     android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
                     app:layout_constraintStart_toEndOf="@+id/edt_jurusan"
                     app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
                     tools:ignore="HardcodedText" />

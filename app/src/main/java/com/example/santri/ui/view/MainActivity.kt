@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         //fab add
         binding.addButton.setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
+            val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
     }

@@ -123,6 +123,7 @@ class MainRepository @Inject constructor(private val service: ApiService) {
         val item = MutableLiveData<ApiResponse<SantriResponse>>()
         val api = service.getUpdateSantri(
             id,
+//            idField,
             santri.nis,
             santri.name,
             santri.telp,

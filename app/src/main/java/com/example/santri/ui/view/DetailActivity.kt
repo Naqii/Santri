@@ -1,5 +1,6 @@
 package com.example.santri.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -60,11 +61,7 @@ class DetailActivity : AppCompatActivity() {
             onFabMenuClicked()
         }
 
-        //Animation FAB
-        binding.fabEdit.setOnClickListener {
-            Toast.makeText(this, "Edit Button Clicked", Toast.LENGTH_SHORT).show()
-        }
-
+        //FAB Delete
         binding.fabDelete.setOnClickListener {
             Toast.makeText(this, "Delete Button Clicked", Toast.LENGTH_SHORT).show()
         }
@@ -150,6 +147,12 @@ class DetailActivity : AppCompatActivity() {
             tvIzin.text = data.presensiIzin
             tvAlfa.text = data.presensiAlfa
             tvKeterangan.text = data.presensiKeterangan
+        }
+        //FAB Edit
+        binding.fabEdit.setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java)
+            intent.putExtra(EditActivity.EXTRA_DATA, data)
+            startActivity(intent)
         }
     }
 
