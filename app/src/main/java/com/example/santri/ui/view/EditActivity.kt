@@ -42,7 +42,6 @@ class EditActivity : AppCompatActivity() {
         }
         if (data != null) {
             data.id?.let { viewModel.idSantri(it) }
-//            viewModel.idSantri(data.id)
             viewEditxt(data)
         }
     }
