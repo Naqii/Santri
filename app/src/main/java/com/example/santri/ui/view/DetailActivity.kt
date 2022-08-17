@@ -8,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.santri.R
 import com.example.santri.databinding.ActivityDetailBinding
@@ -74,7 +75,9 @@ class DetailActivity : AppCompatActivity() {
             view(data)
         }
 
-        delete()
+        binding.fabDelete.setOnClickListener {
+            showAlertDialog(ALERT_DIALOG_CLOSE)
+        }
     }
 
     //Animation FAB
@@ -155,15 +158,33 @@ class DetailActivity : AppCompatActivity() {
     }
 
     //Delete Data
-    private fun delete() {
+    private fun showAlertDialog(type: Int) {
+        val isDialogClose = type == ALERT_DIALOG_CLOSE
+        val dialogTitle = getString(R.string.txt_hapus)
+        val dialogMessage = getString(R.string.txt_dialog_hapus)
+        val alertDialogBuilder = AlertDialog.Builder(this)
         val id = intent.getStringExtra(ID)
-        binding.fabDelete.setOnClickListener {
-            if (id != null) {
-                viewModel.deleteSantri(id)
+        with(alertDialogBuilder) {
+            setTitle(dialogTitle)
+            setMessage(dialogMessage)
+            setCancelable(false)
+            setPositiveButton("Ya") { _, _ ->
+                if (isDialogClose) {
+                    if (id != null) {
+                        viewModel.deleteSantri(id)
+                    }
+                    showToast(getString(R.string.deleted))
+                }
+                finish()
             }
-            Toast.makeText(this, "Data Santri Deleted", Toast.LENGTH_SHORT).show()
-            finish()
+            setNegativeButton("Tidak") { dialog, _ -> dialog.cancel()}
         }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -175,5 +196,6 @@ class DetailActivity : AppCompatActivity() {
         const val TITLE = "Detail Santri"
         const val EXTRA_DATA = "extra_data"
         const val ID = "extra_id"
+        const val ALERT_DIALOG_CLOSE = 10
     }
 }

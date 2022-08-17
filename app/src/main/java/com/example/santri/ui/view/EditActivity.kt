@@ -29,7 +29,6 @@ class EditActivity : AppCompatActivity() {
             Toast.makeText(this, "Data Santri Updated", Toast.LENGTH_SHORT).show()
             finish()
         }
-
         showData()
     }
 

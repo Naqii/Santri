@@ -17,6 +17,6 @@ class MainViewModel @Inject constructor(
     fun getSantri(): LiveData<ApiResponse<SantriResponse>> = repository.getSantri()
 
     //GET BY ID
-//    fun setSrcSantri(id: String): LiveData<ApiResponse<SantriResponse>> =
-//        repository.getSrcSantri(id)
+    fun setSrcSantri(id: String): LiveData<ApiResponse<SantriResponse>> =
+        repository.idSantri(id)
 }
