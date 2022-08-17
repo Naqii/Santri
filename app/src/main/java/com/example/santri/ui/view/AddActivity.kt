@@ -1,6 +1,8 @@
 package com.example.santri.ui.view
 
 import android.os.Bundle
+import android.text.TextUtils
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.santri.databinding.ActivityAddBinding
@@ -24,6 +26,7 @@ class AddActivity : AppCompatActivity() {
 
         binding.createButton.setOnClickListener {
             createSantri()
+//            Toast.makeText(this, "Success adding Data Santri", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -71,7 +74,16 @@ class AddActivity : AppCompatActivity() {
             jurusan,
             gelar
         )
-        viewModel.createSantri(santri)
+        if (nis.isBlank() || name.isBlank() || telp.isBlank() || address.isBlank() || city.isBlank()
+            || prov.isBlank() || birth.isBlank() || email.isBlank() || sikap.isBlank() || materi.isBlank()
+            || bacaan.isBlank() || hafalan.isBlank() || hadir.isBlank() || izin.isBlank() || alfa.isBlank()
+            || ket.isBlank() || univ.isBlank() || progdi.isBlank() || jurusan.isBlank() || gelar.isBlank()) {
+            Toast.makeText(this, "Empty field not allowed!", Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.createSantri(santri)
+            Toast.makeText(this, "Proceed..", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -26,8 +26,6 @@ class EditActivity : AppCompatActivity() {
 
         binding.editButton.setOnClickListener {
             editSantri()
-            Toast.makeText(this, "Data Santri Updated", Toast.LENGTH_SHORT).show()
-            finish()
         }
         showData()
     }
@@ -99,8 +97,17 @@ class EditActivity : AppCompatActivity() {
             id, nis, name, telp, address, city, prov, birth, email, sikap, materi,
             bacaan, hafalan, hadir, izin, alfa, ket, univ, progdi, jurusan, gelar
         )
-        if (id != null) {
-            viewModel.editSantri(santri, id, id)
+        if (nis.isBlank() || name.isBlank() || telp.isBlank() || address.isBlank() || city.isBlank()
+            || prov.isBlank() || birth.isBlank() || email.isBlank() || sikap.isBlank() || materi.isBlank()
+            || bacaan.isBlank() || hafalan.isBlank() || hadir.isBlank() || izin.isBlank() || alfa.isBlank()
+            || ket.isBlank() || univ.isBlank() || progdi.isBlank() || jurusan.isBlank() || gelar.isBlank()) {
+            Toast.makeText(this, "Empty field not allowed!", Toast.LENGTH_SHORT).show()
+        } else {
+            if (id != null) {
+                viewModel.editSantri(santri, id, id)
+            }
+            Toast.makeText(this, "Proceed..", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 

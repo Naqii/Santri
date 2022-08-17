@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = TITLE
 
         binding.recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         adapter = SantriAdapter(ArrayList())
         binding.recyclerView.adapter = adapter
         showData()
