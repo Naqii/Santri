@@ -73,7 +73,7 @@ class EditActivity : AppCompatActivity() {
 
     //For Edit
     private fun editSantri() {
-//        val id =
+        val id = intent.getStringExtra(ID)
         val nis = binding.edtNis.text.toString()
         val name = binding.edtName.text.toString()
         val telp = binding.edtTelp.text.toString()
@@ -95,10 +95,12 @@ class EditActivity : AppCompatActivity() {
         val jurusan = binding.edtJurusan.text.toString()
         val gelar = binding.edtGelar.text.toString()
         val santri = SantriItem(
-            "1", nis, name, telp, address, city, prov, birth, email, sikap, materi,
+            id, nis, name, telp, address, city, prov, birth, email, sikap, materi,
             bacaan, hafalan, hadir, izin, alfa, ket, univ, progdi, jurusan, gelar
         )
-        viewModel.editSantri(santri, "1")
+        if (id != null) {
+            viewModel.editSantri(santri, id, id)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -109,5 +111,6 @@ class EditActivity : AppCompatActivity() {
     companion object {
         const val TITLE = "Edit Santri"
         const val EXTRA_DATA = "extra_data"
+        const val ID = "extra_id"
     }
 }

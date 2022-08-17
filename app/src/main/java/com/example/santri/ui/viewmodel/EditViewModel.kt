@@ -19,9 +19,9 @@ class EditViewModel @Inject constructor(
     fun editSantri(
         santri: SantriItem,
         id: String,
-//        idField: String
+        idField: String
     ): MutableLiveData<ApiResponse<SantriResponse>> =
-        repository.updateSantri(santri, id)
+        repository.updateSantri(santri, id, idField)
 
     fun idSantri(
         id: String

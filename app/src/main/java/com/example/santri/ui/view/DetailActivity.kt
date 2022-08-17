@@ -152,6 +152,7 @@ class DetailActivity : AppCompatActivity() {
         binding.fabEdit.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             intent.putExtra(EditActivity.EXTRA_DATA, data)
+            intent.putExtra(EditActivity.ID, data.id)
             startActivity(intent)
         }
     }

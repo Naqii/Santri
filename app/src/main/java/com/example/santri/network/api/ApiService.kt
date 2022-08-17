@@ -45,12 +45,12 @@ interface ApiService {
 
     //POST/UPDATE
     @FormUrlEncoded
-    @PUT("data/{id}")
+    @PATCH("data/{id}")
     fun getUpdateSantri(
         //For Url
         @Path("id") id: String,
         //Data Field Update
-//        @Field("id") idField: String,
+        @Field("id") idField: String,
         @Field("nis") nis: String?,
         @Field("name") name: String?,
         @Field("telp") telp: String?,
