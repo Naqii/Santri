@@ -5,4 +5,5 @@
     <string name="deleted">Data santri telah terhapus</string>
     <string name="search">Search</string>
     <string name="menu">Menu</string>
+    <string name="splashscreen">SplashScreen</string>
 </resources>

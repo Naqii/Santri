@@ -47,6 +47,7 @@ dependencies {
     implementation 'com.loopj.android:android-async-http:1.4.11'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.7'
+    implementation 'com.google.firebase:firebase-auth:21.0.7'
 
     //testing libraries
     testImplementation 'junit:junit:4.13.2'
