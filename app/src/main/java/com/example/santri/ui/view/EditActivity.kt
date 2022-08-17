@@ -3,6 +3,7 @@ package com.example.santri.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.santri.databinding.ActivityEditBinding
 import com.example.santri.network.model.SantriItem
@@ -25,6 +26,7 @@ class EditActivity : AppCompatActivity() {
 
         binding.editButton.setOnClickListener {
             editSantri()
+            Toast.makeText(this, "Data Santri Updated", Toast.LENGTH_SHORT).show()
             finish()
         }
 
