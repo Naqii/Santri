@@ -33,6 +33,7 @@ class SantriAdapter(private val listSantri: ArrayList<SantriItem>) :
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
                 intent.putExtra(DetailActivity.EXTRA_DATA, dataSantri)
+                intent.putExtra(DetailActivity.ID, dataSantri.id)
                 itemView.context.startActivity(intent)
             }
         }

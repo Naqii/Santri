@@ -1,7 +1,6 @@
 package com.example.santri.ui.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +8,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.example.santri.R
 import com.example.santri.databinding.ActivityDetailBinding
 import com.example.santri.network.model.SantriItem
@@ -61,11 +61,6 @@ class DetailActivity : AppCompatActivity() {
             onFabMenuClicked()
         }
 
-        //FAB Delete
-        binding.fabDelete.setOnClickListener {
-            Toast.makeText(this, "Delete Button Clicked", Toast.LENGTH_SHORT).show()
-        }
-
         //Get Detail Data
         val data = intent.getParcelableExtra(EXTRA_DATA) as? SantriItem
         viewModel.getDetailUser().observe(this) { response ->
@@ -78,6 +73,8 @@ class DetailActivity : AppCompatActivity() {
             data.id?.let { viewModel.setDetailUser(it) }
             view(data)
         }
+
+        delete()
     }
 
     //Animation FAB
@@ -157,6 +154,18 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    //Delete Data
+    private fun delete() {
+        val id = intent.getStringExtra(ID)
+        binding.fabDelete.setOnClickListener {
+            if (id != null) {
+                viewModel.deleteSantri(id)
+            }
+            Toast.makeText(this, "Data Santri Deleted", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
@@ -165,5 +174,6 @@ class DetailActivity : AppCompatActivity() {
     companion object {
         const val TITLE = "Detail Santri"
         const val EXTRA_DATA = "extra_data"
+        const val ID = "extra_id"
     }
 }

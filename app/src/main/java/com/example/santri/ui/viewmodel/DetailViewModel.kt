@@ -22,4 +22,7 @@ class DetailViewModel @Inject constructor(
     fun getDetailUser(): LiveData<ArrayList<SantriItem>> {
         return listUser
     }
+
+    fun deleteSantri(id: String): MutableLiveData<ApiResponse<SantriResponse>> =
+        repository.deleteSantri(id)
 }

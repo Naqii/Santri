@@ -4,12 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.santri.adapter.SantriAdapter
 import com.example.santri.databinding.ActivityMainBinding
 import com.example.santri.network.model.StatusResponse
@@ -38,15 +38,14 @@ class MainActivity : AppCompatActivity() {
         showData()
 
         val swiveled = binding.swipeLayout
-        swiveled.setOnRefreshListener( SwipeRefreshLayout.OnRefreshListener {
+        swiveled.setOnRefreshListener {
             showData()
-            val handler = Handler()
-            handler.postDelayed(Runnable {
+            Handler(Looper.getMainLooper()).postDelayed({
                 if (swiveled.isRefreshing) {
                     swiveled.isRefreshing = false
                 }
             }, 1000)
-        })
+        }
 
         //fab add
         binding.addButton.setOnClickListener {

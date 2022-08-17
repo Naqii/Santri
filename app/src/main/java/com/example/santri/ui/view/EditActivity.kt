@@ -25,7 +25,7 @@ class EditActivity : AppCompatActivity() {
 
         binding.editButton.setOnClickListener {
             editSantri()
-//            finish()
+            finish()
         }
 
         showData()
