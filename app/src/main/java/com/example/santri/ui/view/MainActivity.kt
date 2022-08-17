@@ -1,12 +1,15 @@
 package com.example.santri.ui.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.santri.adapter.SantriAdapter
 import com.example.santri.databinding.ActivityMainBinding
 import com.example.santri.network.model.StatusResponse
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: SantriAdapter
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -27,12 +31,22 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = TITLE
 
-        //recycler view
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         adapter = SantriAdapter(ArrayList())
         binding.recyclerView.adapter = adapter
         showData()
+
+        val swiveled = binding.swipeLayout
+        swiveled.setOnRefreshListener( SwipeRefreshLayout.OnRefreshListener {
+            showData()
+            val handler = Handler()
+            handler.postDelayed(Runnable {
+                if (swiveled.isRefreshing) {
+                    swiveled.isRefreshing = false
+                }
+            }, 1000)
+        })
 
         //fab add
         binding.addButton.setOnClickListener {
@@ -40,6 +54,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 
     private fun showData() {
         viewModel.getSantri().observe(this) { response ->
