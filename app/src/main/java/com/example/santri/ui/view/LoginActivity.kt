@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                 showLoading(true)
                 finish()
             } else
-                Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Wrong input email or password ", Toast.LENGTH_SHORT).show()
         }
     }
 

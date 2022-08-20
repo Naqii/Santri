@@ -10,6 +10,13 @@ interface ApiService {
     @GET("data")
     fun getSantri(): Call<SantriResponse>
 
+    //GET BY NAME
+    @GET("data/{name}")
+    fun getSrcName (
+        @Path("name")
+        name: String
+    ): Call<SantriResponse>
+
     //GET BY ID
     @GET("data/{id}")
     fun getSrcSantri (
