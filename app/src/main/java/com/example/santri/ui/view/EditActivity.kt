@@ -1,5 +1,6 @@
 package com.example.santri.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,6 +28,8 @@ class EditActivity : AppCompatActivity() {
 
         binding.editButton.setOnClickListener {
             editSantri()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
         showData()
     }
