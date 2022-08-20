@@ -47,5 +47,26 @@
         app:layout_constraintStart_toStartOf="@+id/swipe_layout"
         app:layout_constraintTop_toTopOf="@+id/swipe_layout" />
 
+    <ImageView
+        android:id="@+id/error_connection"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="error"
+        app:layout_constraintBottom_toBottomOf="@+id/swipe_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/connectionloss" />
+
+    <ImageView
+        android:id="@+id/error_no_data"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="error"
+        app:layout_constraintBottom_toBottomOf="@+id/swipe_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/connectionloss" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

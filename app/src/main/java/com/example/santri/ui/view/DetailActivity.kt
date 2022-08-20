@@ -2,6 +2,8 @@ package com.example.santri.ui.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
@@ -58,11 +60,33 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title = TITLE
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        //Fab Menu
         binding.fabMenu.setOnClickListener {
             onFabMenuClicked()
         }
 
-        //Get Detail Data
+        //Get Detail Item
+        getDetailItem()
+
+        val swiveled = binding.swipe
+        swiveled.setOnRefreshListener {
+            getDetailItem()
+            Handler(Looper.getMainLooper()).postDelayed({
+                if (swiveled.isRefreshing) {
+                    swiveled.isRefreshing = false
+                }
+            }, 1000)
+        }
+
+        //Delete Data
+        binding.fabDelete.setOnClickListener {
+            showAlertDialog(ALERT_DIALOG_CLOSE)
+        }
+
+    }
+
+    //Get Detail Item
+    private fun getDetailItem() {
         val data = intent.getParcelableExtra(EXTRA_DATA) as? SantriItem
         viewModel.getDetailUser().observe(this) { response ->
             if (response != null) {
@@ -74,10 +98,72 @@ class DetailActivity : AppCompatActivity() {
             data.id?.let { viewModel.setDetailUser(it) }
             view(data)
         }
+    }
 
-        binding.fabDelete.setOnClickListener {
-            showAlertDialog(ALERT_DIALOG_CLOSE)
+    //Post Data for Edit
+    private fun view(data: SantriItem) {
+        with(binding) {
+            nis.text = data.nis
+            name.text = data.name
+            telp.text = data.telp
+            //Detail Bio
+            tvEmail.text = data.email
+            tvAddress.text = data.address
+            tvKota.text = data.city
+            tvTtl.text = data.birth
+            tvProvince.text = data.province
+            //Detail Kampus
+            tvUniv.text = data.kampusUniv
+            tvFakultas.text = data.kampusJurusan
+            tvProgdi.text = data.kampusProgdi
+            tvGelar.text = data.kampusGelar
+            //Detail Nilai
+            tvMateri.text = data.nilaiMateri
+            tvBacaan.text = data.nilaiBacaan
+            tvSikap.text = data.nilaiSikap
+            tvHafalan.text = data.nilaiHafalan
+            //Detail Presensi
+            tvHadir.text = data.presensiHadir
+            tvIzin.text = data.presensiIzin
+            tvAlfa.text = data.presensiAlfa
+            tvKeterangan.text = data.presensiKeterangan
         }
+        //FAB Edit
+        binding.fabEdit.setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java)
+            intent.putExtra(EditActivity.EXTRA_DATA, data)
+            intent.putExtra(EditActivity.ID, data.id)
+            startActivity(intent)
+        }
+    }
+    //Delete Data
+    private fun showAlertDialog(type: Int) {
+        val isDialogClose = type == ALERT_DIALOG_CLOSE
+        val dialogTitle = getString(R.string.txt_hapus)
+        val dialogMessage = getString(R.string.txt_dialog_hapus)
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        val id = intent.getStringExtra(ID)
+        with(alertDialogBuilder) {
+            setTitle(dialogTitle)
+            setMessage(dialogMessage)
+            setCancelable(false)
+            setPositiveButton("Ya") { _, _ ->
+                if (isDialogClose) {
+                    if (id != null) {
+                        viewModel.deleteSantri(id)
+                    }
+                    showToast(getString(R.string.deleted))
+                }
+                finish()
+            }
+            setNegativeButton("Tidak") { dialog, _ -> dialog.cancel()}
+        }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     //Animation FAB
@@ -118,73 +204,6 @@ class DetailActivity : AppCompatActivity() {
             binding.fabEdit.isClickable = false
             binding.fabDelete.isClickable = false
         }
-    }
-
-    //Post Data to View
-    private fun view(data: SantriItem) {
-        with(binding) {
-            nis.text = data.nis
-            name.text = data.name
-            telp.text = data.telp
-            //Detail Bio
-            tvEmail.text = data.email
-            tvAddress.text = data.address
-            tvKota.text = data.city
-            tvTtl.text = data.birth
-            tvProvince.text = data.province
-            //Detail Kampus
-            tvUniv.text = data.kampusUniv
-            tvFakultas.text = data.kampusJurusan
-            tvProgdi.text = data.kampusProgdi
-            tvGelar.text = data.kampusGelar
-            //Detail Nilai
-            tvMateri.text = data.nilaiMateri
-            tvBacaan.text = data.nilaiBacaan
-            tvSikap.text = data.nilaiSikap
-            tvHafalan.text = data.nilaiHafalan
-            //Detail Presensi
-            tvHadir.text = data.presensiHadir
-            tvIzin.text = data.presensiIzin
-            tvAlfa.text = data.presensiAlfa
-            tvKeterangan.text = data.presensiKeterangan
-        }
-        //FAB Edit
-        binding.fabEdit.setOnClickListener {
-            val intent = Intent(this, EditActivity::class.java)
-            intent.putExtra(EditActivity.EXTRA_DATA, data)
-            intent.putExtra(EditActivity.ID, data.id)
-            startActivity(intent)
-        }
-    }
-
-    //Delete Data
-    private fun showAlertDialog(type: Int) {
-        val isDialogClose = type == ALERT_DIALOG_CLOSE
-        val dialogTitle = getString(R.string.txt_hapus)
-        val dialogMessage = getString(R.string.txt_dialog_hapus)
-        val alertDialogBuilder = AlertDialog.Builder(this)
-        val id = intent.getStringExtra(ID)
-        with(alertDialogBuilder) {
-            setTitle(dialogTitle)
-            setMessage(dialogMessage)
-            setCancelable(false)
-            setPositiveButton("Ya") { _, _ ->
-                if (isDialogClose) {
-                    if (id != null) {
-                        viewModel.deleteSantri(id)
-                    }
-                    showToast(getString(R.string.deleted))
-                }
-                finish()
-            }
-            setNegativeButton("Tidak") { dialog, _ -> dialog.cancel()}
-        }
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onSupportNavigateUp(): Boolean {

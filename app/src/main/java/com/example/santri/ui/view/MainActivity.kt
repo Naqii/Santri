@@ -2,8 +2,11 @@ package com.example.santri.ui.view
 
 import android.annotation.SuppressLint
 import android.app.SearchManager
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -29,6 +32,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: SantriAdapter
 
+    private var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            val notConnected = intent.getBooleanExtra(ConnectivityManager
+                .EXTRA_NO_CONNECTIVITY,false)
+            if (notConnected) {
+                disconnected()
+            } else {
+                connected()
+            }
+        }
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +52,11 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.title = TITLE
 
-        binding.recyclerView.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        adapter = SantriAdapter(ArrayList())
-        binding.recyclerView.adapter = adapter
-        showData()
+        setupRecyclerView()
 
         val swiveled = binding.swipeLayout
         swiveled.setOnRefreshListener {
-            showData()
+            setupRecyclerView()
             Handler(Looper.getMainLooper()).postDelayed({
                 if (swiveled.isRefreshing) {
                     swiveled.isRefreshing = false
@@ -60,6 +71,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupRecyclerView() {
+        binding.recyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        adapter = SantriAdapter(ArrayList())
+        binding.recyclerView.adapter = adapter
+        showData()
+    }
 
     private fun showData() {
         viewModel.getSantri().observe(this) { response ->
@@ -92,6 +110,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //Option Menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.option_menu, menu)
@@ -103,33 +122,35 @@ class MainActivity : AppCompatActivity() {
         searchView.queryHint = "Search Hint"
         searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query!!.isEmpty()){
-                    return true
-                } else {
-                    showLoading(true)
-                    viewModel.setSrcSantri(query).observe(this@MainActivity) { response ->
-                        when (response.status) {
-                            StatusResponse.SUCCESS -> {
-                                showLoading(false)
-                                val id = response.body?.santri
-                                if (response.body != null) {
-                                    id?.let { adapter.setData(it) }
+                if (query != null) {
+                    if (query.isEmpty()){
+                        showError()
+                    } else {
+                        showLoading(true)
+                        viewModel.setSrcSantri(query).observe(this@MainActivity) { response ->
+                            when (response.status) {
+                                StatusResponse.SUCCESS -> {
+                                    showLoading(false)
+                                    val id = response.body?.santri
+                                    if (response.body != null) {
+                                        id?.let { adapter.setData(it) }
+                                        binding.recyclerView.adapter = adapter
+                                    }
+                                }
+                                StatusResponse.EMPTY -> {
+                                    showLoading(false)
+                                    adapter = SantriAdapter(ArrayList())
                                     binding.recyclerView.adapter = adapter
                                 }
-                            }
-                            StatusResponse.EMPTY -> {
-                                showLoading(false)
-                                adapter = SantriAdapter(ArrayList())
-                                binding.recyclerView.adapter = adapter
-                            }
-                            StatusResponse.ERROR -> {
-                                showLoading(false)
-                                Toast.makeText(this@MainActivity,
-                                "An error occupied can't bind data",
-                                Toast.LENGTH_SHORT).show()
-                            }
-                            else -> {
-                                showLoading(true)
+                                StatusResponse.ERROR -> {
+                                    showLoading(false)
+                                    Toast.makeText(this@MainActivity,
+                                        "An error occupied can't bind data",
+                                        Toast.LENGTH_SHORT).show()
+                                }
+                                else -> {
+                                    showLoading(true)
+                                }
                             }
                         }
                     }
@@ -140,7 +161,6 @@ class MainActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
         })
         return true
     }
@@ -164,6 +184,34 @@ class MainActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.GONE
             binding.recyclerView.visibility = View.VISIBLE
         }
+    }
+
+    private fun showError() {
+        binding.recyclerView.visibility = View.GONE
+        binding.errorNoData.visibility = View.VISIBLE
+        binding.errorConnection.visibility = View.GONE
+    }
+
+    private fun disconnected() {
+        binding.recyclerView.visibility = View.GONE
+        binding.errorNoData.visibility = View.GONE
+        binding.errorConnection.visibility = View.VISIBLE
+    }
+
+    private fun connected() {
+        binding.recyclerView.visibility = View.VISIBLE
+        binding.errorConnection.visibility = View.GONE
+        binding.errorNoData.visibility = View.GONE
+    }
+
+    override fun onStart() {
+        super.onStart()
+        registerReceiver(broadcastReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+    }
+
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(broadcastReceiver)
     }
 
     companion object {

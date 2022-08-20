@@ -1,11 +1,10 @@
 package com.example.santri.ui.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.santri.R
+import androidx.appcompat.app.AppCompatActivity
 import com.example.santri.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -51,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
                 finish()
             } else
                 Toast.makeText(this, "Wrong input email or password ", Toast.LENGTH_SHORT).show()
+            showLoading(true)
         }
     }
 
