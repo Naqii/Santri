@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Santri</string>
     <string name="txt_hapus">Hapus</string>
+    <string name="txt_logout">LogOut</string>
     <string name="txt_dialog_hapus">Apakah anda yakin ingin menghapus data santri ini?</string>
+    <string name="txt_dialog_logout">Apakah anda yakin ingin keluar?</string>
     <string name="deleted">Data santri telah terhapus</string>
+    <string name="logedout">Telag LogOut</string>
     <string name="search">Search</string>
     <string name="menu">Menu</string>
     <string name="splashscreen">SplashScreen</string>

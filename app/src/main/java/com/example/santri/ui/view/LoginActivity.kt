@@ -26,9 +26,9 @@ class LoginActivity : AppCompatActivity() {
         }
         binding.tvRedirectSignUp.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
+            showLoading(true)
             startActivity(intent)
             finish()
-            showLoading(true)
         }
         showLoading(false)
     }

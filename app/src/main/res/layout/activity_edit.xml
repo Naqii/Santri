@@ -25,113 +25,250 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edt_nis"
-                    android:layout_width="120dp"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nis_box"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:autofillHints="name"
-                    android:hint=" Nis"
-                    android:inputType="number"
-                    android:minHeight="48dp"
+                    android:layout_margin="4dp"
+                    android:hint="Nis"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="6"
+                    app:boxBackgroundColor="#9CD3D8"
+                    app:boxStrokeColor="#0396A6"
+                    app:endIconMode="clear_text"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="#FF0000"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_nis"
+                        android:maxLength="7"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/edit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Update"
+                    app:layout_constraintBottom_toBottomOf="@+id/nis_box"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/nis_box"
+                    app:layout_constraintTop_toTopOf="@+id/nis_box"
                     tools:ignore="HardcodedText" />
 
-                <EditText
-                    android:id="@+id/edt_name"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/name_box"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint=" Name"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    app:layout_constraintStart_toStartOf="@+id/edt_nis"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_nis"
-                    tools:ignore="HardcodedText" />
+                    android:hint="Nama"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    app:boxBackgroundColor="#9CD3D8"
+                    app:boxStrokeColor="#0396A6"
+                    app:endIconMode="clear_text"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintStart_toStartOf="@+id/nis_box"
+                    app:layout_constraintTop_toBottomOf="@+id/nis_box"
+                    tools:ignore="HardcodedText">
 
-                <EditText
-                    android:id="@+id/edt_telp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint=" Telephone"
-                    android:inputType="number"
-                    android:minHeight="48dp"
-                    app:layout_constraintStart_toStartOf="@+id/edt_name"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_name"
-                    tools:ignore="HardcodedText" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_name"
+                        android:maxLength="51"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-                <EditText
-                    android:id="@+id/edt_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint=" Address"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    app:layout_constraintStart_toStartOf="@+id/edt_telp"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_telp"
-                    tools:ignore="HardcodedText" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/edt_city"
-                    android:layout_width="180dp"
+                <TableLayout
+                    android:id="@+id/table1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint="Kota"
-                    android:inputType="text"
-                    android:minHeight="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_address"
-                    tools:ignore="HardcodedText" />
+                    app:layout_constraintTop_toBottomOf="@id/name_box">
 
-                <EditText
-                    android:id="@+id/edt_prov"
-                    android:layout_width="0dp"
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/birth_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="TTL YYYY/MM/DD"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="10"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_birth"
+                                android:maxLength="11"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/email_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Email"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_email"
+                                android:maxLength="30"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+                </TableLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/telp_box"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint="Province"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
+                    android:hint="Telephone"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="13"
+                    app:boxBackgroundColor="#9CD3D8"
+                    app:boxStrokeColor="#0396A6"
+                    app:endIconMode="clear_text"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintStart_toStartOf="@+id/table1"
+                    app:layout_constraintTop_toBottomOf="@+id/table1"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_telp"
+                        android:maxLength="14"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/address_box"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:hint="Alamat"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="50"
+                    app:boxBackgroundColor="#9CD3D8"
+                    app:boxStrokeColor="#0396A6"
+                    app:endIconMode="clear_text"
+                    app:helperText="Required*"
+                    app:helperTextTextColor="#FF0000"
+                    app:layout_constraintStart_toStartOf="@+id/telp_box"
+                    app:layout_constraintTop_toBottomOf="@+id/telp_box"
+                    tools:ignore="HardcodedText">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_address"
+                        android:maxLength="51"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TableLayout
+                    android:id="@+id/table2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/edt_city"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_address"
-                    tools:ignore="HardcodedText" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/address_box">
 
-                <EditText
-                    android:id="@+id/edt_birth"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint="Tanggal Lahir"
-                    android:inputType="date"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toStartOf="@+id/edt_city"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_city"
-                    tools:ignore="HardcodedText" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edt_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:autofillHints="name"
-                    android:hint="Email"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/edt_prov"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_prov"
-                    tools:ignore="HardcodedText,TextFields" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/city_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Kota"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_city"
+                                android:maxLength="30"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/prov_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Kota"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_prov"
+                                android:maxLength="30"
+                                android:inputType="text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+                </TableLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -149,174 +286,340 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/edt_sikap"
-                    android:layout_width="100dp"
+                <TableLayout
+                    android:id="@+id/table3"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Sikap"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="HardcodedText" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
-                    android:id="@+id/edt_materi"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Materi"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_sikap"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="HardcodedText" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edt_bacaan"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Bacaan"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_materi"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="HardcodedText" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/sikap_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Nilai Sikap"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="1"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
 
-                <EditText
-                    android:id="@+id/edt_hafalan"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Hafalan"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_bacaan"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="HardcodedText" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_sikap"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="2" />
 
-                <EditText
-                    android:id="@+id/edt_hadir"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Hadir"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toStartOf="@+id/edt_sikap"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
-                    tools:ignore="HardcodedText" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/edt_izin"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Izin"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_hadir"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
-                    tools:ignore="HardcodedText" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/materi_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Nilai Materi"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="1"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
 
-                <EditText
-                    android:id="@+id/edt_alfa"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Alfa"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_izin"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
-                    tools:ignore="HardcodedText" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_materi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="2" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
 
-                <EditText
-                    android:id="@+id/edt_keterangan"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Keterangan"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_alfa"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_sikap"
-                    tools:ignore="HardcodedText" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/edt_univ"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Universitas"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toStartOf="@+id/edt_hadir"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
-                    tools:ignore="HardcodedText" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/bacaan_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Nilai Bacaan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="1"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
 
-                <EditText
-                    android:id="@+id/edt_progdi"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Program Studi"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_univ"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
-                    tools:ignore="HardcodedText" />
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_bacaan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="2" />
 
-                <EditText
-                    android:id="@+id/edt_jurusan"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Fakultas"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_progdi"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
-                    tools:ignore="HardcodedText" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
-                    android:id="@+id/edt_gelar"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:autofillHints="name"
-                    android:hint="Gelar"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColorHint="#757575"
-                    app:layout_constraintStart_toEndOf="@+id/edt_jurusan"
-                    app:layout_constraintTop_toBottomOf="@+id/edt_hadir"
-                    tools:ignore="HardcodedText" />
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/hafalan_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Nilai Hafalan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="1"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
 
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_hafalan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="2" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/hadir_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Kehadiran/bulan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="2"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_hadir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="3" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/izin_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Izin/bulan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="2"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_izin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="3" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/alfa_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Alfa/bulan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="2"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_alfa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="3" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/keterangan_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Keterangan"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_keterangan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="30" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/univ_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Universitas"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_univ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="31" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/progdi_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Progdi"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_progdi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="31" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/jurusan_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Fakultas"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_jurusan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="31" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/gelar_box"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="Gelar"
+                            app:boxBackgroundColor="#9CD3D8"
+                            app:boxStrokeColor="#0396A6"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="10"
+                            app:endIconMode="clear_text"
+                            app:helperText="Required*"
+                            app:helperTextTextColor="#FF0000"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_gelar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text"
+                                android:maxLength="11" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </TableRow>
+                </TableLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/edit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Edit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card2"
-            tools:ignore="HardcodedText" />
 
         <ProgressBar
             android:id="@+id/progressBar"

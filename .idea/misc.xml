@@ -3,14 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_add.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/drawable/custom_button.xml" value="0.1" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout-v28/activity_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_add.xml" value="0.33" />
         <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_detail.xml" value="0.22" />
         <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_edit.xml" value="0.1875" />
-        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_login.xml" value="0.17940199335548174" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/activity_registration.xml" value="0.25925925925925924" />
         <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/error_connectioin.xml" value="0.22" />
         <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/item_add.xml" value="0.25" />
-        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/item_list_one.xml" value="0.30185185185185187" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/item_list_one.xml" value="0.22" />
         <entry key="..\:/AndroidProject/Santri/app/src/main/res/layout/no_data.xml" value="0.1859375" />
+        <entry key="..\:/AndroidProject/Santri/app/src/main/res/menu/option_menu.xml" value="0.1" />
         <entry key="..\:/android/santri/app/src/main/res/layout/activity_add.xml" value="0.1648148148148148" />
         <entry key="..\:/android/santri/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/android/santri/app/src/main/res/layout/activity_edit.xml" value="0.2462962962962963" />

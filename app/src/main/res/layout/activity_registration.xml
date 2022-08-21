@@ -6,69 +6,141 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.RegistrationActivity">
 
-    <EditText
-        android:id="@+id/email"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoppm"
+        tools:ignore="ContentDescription" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="emailAddress"
-        android:ems="10"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
+        app:boxBackgroundColor="#9CD3D8"
+        app:boxStrokeColor="#0396A6"
+        app:endIconMode="clear_text"
+        app:helperText="Required*"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.1"
+        app:startIconDrawable="@drawable/ic_email"
+        tools:ignore="HardcodedText">
 
-    <EditText
-        android:id="@+id/password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="password"
-        android:ems="10"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:hint="Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:boxBackgroundColor="#9CD3D8"
+        app:boxStrokeColor="#0396A6"
+        app:helperText="Required*"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintTop_toBottomOf="@+id/email_box"
+        app:startIconDrawable="@drawable/ic_pass"
+        tools:ignore="HardcodedText">
 
-    <EditText
-        android:id="@+id/confirm_password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass2_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:ignore="TextContrastCheck" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Confirm Password"
+        app:boxBackgroundColor="#9CD3D8"
+        app:boxStrokeColor="#0396A6"
+        app:helperText="Required*"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintTop_toBottomOf="@+id/pass_box"
+        app:startIconDrawable="@drawable/ic_pass"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_sign"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Signed in"
+        android:layout_margin="4dp"
+        android:backgroundTint="#9CD3D8"
+        android:text="Sign In"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/pass2_box"
+        app:layout_constraintStart_toStartOf="@+id/pass2_box"
+        app:layout_constraintTop_toBottomOf="@+id/pass2_box"
+        tools:ignore="HardcodedText" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign">
 
-    <TextView
-        android:id="@+id/tv_redirect_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:text="Already have an account?"
-        android:textColor="#18206F"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign" />
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/tvRedirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Have an account?"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:gravity="center_horizontal"
+                android:text="Sign In"
+                android:textColor="#13374E"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+
+    </TableLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -4,57 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".ui.view.LoginActivity">
 
-    <EditText
-        android:id="@+id/input_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
-        android:autofillHints="emailAddress"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logoppm"
+        tools:ignore="ContentDescription" />
 
-    <EditText
-        android:id="@+id/input_pass"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="password"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Email"
+        app:boxBackgroundColor="#9CD3D8"
+        app:boxStrokeColor="#0396A6"
+        app:endIconMode="clear_text"
+        app:helperText="Required*"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_email" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.1"
+        app:startIconDrawable="@drawable/ic_email"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_box"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Password"
+        app:boxBackgroundColor="#9CD3D8"
+        app:boxStrokeColor="#0396A6"
+        app:endIconMode="password_toggle"
+        app:helperText="Required*"
+        app:helperTextTextColor="#FF0000"
+        app:layout_constraintTop_toBottomOf="@+id/email_box"
+        app:startIconDrawable="@drawable/ic_pass"
+        tools:ignore="HardcodedText">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="4dp"
+        android:backgroundTint="#9CD3D8"
         android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_pass" />
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/pass_box"
+        app:layout_constraintStart_toStartOf="@+id/pass_box"
+        app:layout_constraintTop_toBottomOf="@+id/pass_box"
+        tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/tvRedirectSignUp"
-        android:layout_width="match_parent"
+    <TableLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:gravity="center_horizontal"
-        android:text="Don't have an account?"
-        android:textColor="#18206F"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <TextView
+                android:id="@+id/tvRedirect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Don't have an account?"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/tvRedirectSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:gravity="center_horizontal"
+                android:text="Sign Up"
+                android:textColor="#13374E"
+                android:textSize="16sp"
+                tools:ignore="HardcodedText" />
+        </TableRow>
+
+    </TableLayout>
+
 
     <ProgressBar
         android:id="@+id/progressBar"

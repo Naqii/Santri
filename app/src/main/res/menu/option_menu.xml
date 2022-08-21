@@ -12,7 +12,7 @@
     <item
         android:id="@+id/menu"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_menu"
+        android:icon="@drawable/ic_logout"
         android:title="@string/menu" />
 
 </menu>

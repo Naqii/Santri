@@ -24,6 +24,14 @@ class RegistrationActivity : AppCompatActivity() {
         binding.btnSign.setOnClickListener {
             signUpUser()
         }
+
+        binding.tvSignIn.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            showLoading(true)
+            startActivity(intent)
+            finish()
+        }
+        showLoading(false)
     }
 
     private fun signUpUser() {
