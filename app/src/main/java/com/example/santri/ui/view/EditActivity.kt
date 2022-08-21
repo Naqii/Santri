@@ -120,10 +120,6 @@ class EditActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showLoading(state: Boolean) {
-        binding.progressBar.visibility = if (state) View.VISIBLE else View.INVISIBLE
-    }
-
     companion object {
         const val TITLE = "Edit Santri"
         const val EXTRA_DATA = "extra_data"
